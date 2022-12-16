@@ -2,18 +2,18 @@ import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image } from
 import React from 'react'
 
 
-export default function EliquidsCard(props) {
+export default function VapersCard(props) {
 
-    let { photo, name, navigation, eliquid, price, description } = props;
+    let { photo, name, navigation, vaper } = props;
 
     let NavigationContainer = () => {
-        navigation.navigate('DetailsCart', { eliquid })
+        navigation.navigate('DetailsCart', { vaper })
     }
 
     const styles = StyleSheet.create({
         container: {
-            height: "79%",
-            width: "70%",
+            height: "75%",
+            width: "75%",
             color: '#eaf2f4',
             backgroundColor: 'black',
             borderRadius: 20,
@@ -65,10 +65,10 @@ export default function EliquidsCard(props) {
 
     return (
         <View style={styles.container}>
-                                <Image source={{ uri: eliquid.photo }} style={styles.image} />
-                               <Text style={styles.text}>{eliquid.name}</Text>
-                                <Text style={styles.description}>{eliquid.description}</Text>
-                                <Text style={styles.text}>${eliquid.price}</Text>
+                               <Image source={{ uri: vaper.photo }} style={styles.image} />
+                               <Text style={styles.text}>{vaper.name}</Text>
+                                <Text style={styles.description}>{vaper.description}</Text>
+                                <Text style={styles.text}>${vaper.price}</Text>
 
                     <TouchableOpacity onPress={NavigationContainer}
                     style={{

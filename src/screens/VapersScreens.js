@@ -1,35 +1,43 @@
 import React from "react";
-import CityCard from "../components/EliquidsCard";
+import VapersCard from "../components/VapersCard";
 import { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import citiesActions from '../redux/actions/citiesActions'
+import vapersActions from '../redux/actions/vapersAction'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions, ScrollView } from 'react-native'
 import { TextInput } from "react-native-gesture-handler";
 import { useNavigation } from '@react-navigation/native'
 
-export default function CitiesScreens(props) {
+export default function VapersScreens(props) {
   
   
   const dispatch = useDispatch()
-  const [searchCities, setSearchCities] = useState('')
-  const {cities, search} = useSelector(store => store.cityReducer)
-  const { getCities, filterCities } = citiesActions
+  const [searchVapers, setSearchVapers] = useState('')
+  const {vapers, search} = useSelector(store => store.vapersReducer)
+  const { getVapers } = vapersActions
   const navigation = useNavigation();
-  
+
   useEffect(() => {
+    // dispatch(getVapers())
+
     if(search){
         let info ={ 
             search: search, 
+           
         }
-        dispatch(filterCities(info))
-        setSearchCities(search)
+        dispatch(getVapers(info))
+        setSearchVapers(search)
         
     }else{
-        dispatch(getCities())
+        let data = {
+            name:"",
+            category:"",
+        }
+        dispatch(getVapers(data))
     }
     //eslint-disable-next-line
 
-}, []) 
+}, [])
+console.log(vapers) 
 
 const styles = StyleSheet.create({
     text: {
@@ -54,7 +62,11 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         borderRadius: 20,
+        height:"6%",
+        width:"100%",
+     
     },
+    
     textInput: {
         backgroundColor: '#fff',
         width: '60%',
@@ -64,24 +76,24 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginLeft:"20%",
         textAlign: "center",
+        marginBottom: 20,
         
     }
 });
-
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
       <ScrollView>
         <Text style={styles.text}>Vapers</Text>
         <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text)=>{
-            setSearchCities(text)
+            setSearchVapers(text)
             let data = {
                 search: text
             }
-            dispatch(filterCities(data))
+            dispatch(getVapers(data))
         }}/>
         <View style={styles.containerCard}>
-            {cities.map(city => <CityCard key={city._id} city={city} name={city.name} navigation={props.navigation} continent={city.continent} photo={city.photo} />)}
+            {vapers.map(vaper => <VapersCard key={vaper._id} vaper={vaper} name={vaper.name} descripcion={vaper.descripcion} navigation={props.navigation} price={vaper.price} photo={vaper.photo} />)}
             
         </View>
       </ScrollView>

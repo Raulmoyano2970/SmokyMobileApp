@@ -1,31 +1,37 @@
 import React from "react";
-import HotelCard from "../components/HotelCard";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import hotelsActions from '../redux/actions/hotelsActions'
+import eliquidsActions from '../redux/actions/eliquidsAction'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions, ScrollView } from 'react-native'
 import { TextInput } from "react-native-gesture-handler";
 import EliquidsCard from "../components/EliquidsCard";
+import { useNavigation } from "@react-navigation/native";
 
-export default function HotelsScreens(props) {
+export default function EliquidsScreens(props) {
 
 
     const dispatch = useDispatch()
-    const [searchHotels, setSearchHotels] = useState('')
-    const { hotels, search } = useSelector(store => store.hotelReducer)
-    const { getHotels, filterHotels } = hotelsActions
+    const [searchEliquids, setSearchEliquids] = useState('')
+    const { eliquids, search } = useSelector(store => store.eliquidsReducer)
+    const { getEliquids } = eliquidsActions
+    const navigation = useNavigation()
 
 
     useEffect(() => {
+        // dispatch(getEliquids())
         if (search) {
             let info = {
                 search: search,
             }
-            dispatch(filterHotels(info))
-            setSearchHotels(search)
+            dispatch(getEliquids(info))
+            setSearchEliquids(search)
 
         } else {
-            dispatch(getHotels())
+            let data = {
+                name:"",
+                category:"",
+            }
+            dispatch(getEliquids(data))
         }
         //eslint-disable-next-line
 
@@ -35,7 +41,7 @@ export default function HotelsScreens(props) {
     const styles = StyleSheet.create({
         container: {
             width: '100%',
-            height: "100%"
+            // height: "100%"
         },
         text: {
             color: '#fff',
@@ -46,7 +52,7 @@ export default function HotelsScreens(props) {
             marginTop: 30,
             fontWeight: "bold"
         },
-      
+
         backimage: {
             width: '100%',
             height: '100%',
@@ -57,6 +63,8 @@ export default function HotelsScreens(props) {
             flexWrap: 'wrap',
             justifyContent: 'center',
             borderRadius: 20,
+            height:"11%",
+            width:"100%"
         },
         textInput: {
             backgroundColor: '#fff',
@@ -67,56 +75,42 @@ export default function HotelsScreens(props) {
             alignItems: "center",
             marginLeft: "20%",
             textAlign: "center",
-            marginBottom:20,
+            marginBottom: 20,
         }
     });
 
     return (
-        
+
         <View style={styles.container}>
-       
+
             <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
-            <ScrollView>
+                <ScrollView>
                     <Text style={styles.text}>E-liquids</Text>
                     <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text) => {
-                        setSearchHotels(text)
+                        setSearchEliquids(text)
                         let data = {
                             search: text
                         }
-
-                        dispatch(filterHotels(data))
+                        dispatch(getEliquids(data))
+                        // dispatch(filterHotels(data))
                     }} />
 
                     <View style={styles.containerCard}>
-                        <EliquidsCard/>
-                    </View>
-                    <View style={styles.containerCard}>
-                        <EliquidsCard/>
-                    </View>
-                    <View style={styles.containerCard}>
-                        <EliquidsCard/>
-                    </View>
-                    <View style={styles.containerCard}>
-                        <EliquidsCard/>
-                    </View>
-                    <View style={styles.containerCard}>
-                        <EliquidsCard/>
-                    </View>
-                    <View style={styles.containerCard}>
-                        <EliquidsCard/>
+                        {eliquids.map(eliquid => <EliquidsCard key={eliquid._id} eliquid={eliquid} name={eliquid.name} navigation={props.navigation} price={eliquid.price} descripcion={eliquid.descripcion} photo={eliquid.photo} />)}
+
                     </View>
 
-                    </ScrollView>
+                </ScrollView>
             </ImageBackground>
-         
+
         </View>
-      
+
     )
 }
 
 
 
-                    {/* <View style={styles.containerCard}>
+{/* <View style={styles.containerCard}>
             {hotels.map(hotel => <HotelCard key={hotel._id}hotel={hotel} name={hotel.name} navigation={props.navigation} continent={hotel.continent} photo={hotel.photo[0]}/>)}
 
         </View> */}

@@ -4,15 +4,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer} from '@react-navigation/native';
 import VapersScreens from '../screens/VapersScreens';
 import EliquidsScreens from '../screens/EliquidsScreens'; 
-import DetailsCity from "../screens/DetailsCity";
-import DetailsHotel from "../screens/DetailsHotel";
-import Itineraries from "../screens/Itineraries";
-import Shows from "../screens/Shows";
+import DetailsCart from "../screens/DetailsCart";
 import Home from '../screens/Home';
 import User from '../screens/User';
 import SignUp from '../screens/SignUp';
 import SignIn from '../screens/SignIn';
-import Profile from "../screens/Profile"
 
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -35,20 +31,8 @@ function MyStack() {
             name='E-liquids'
             component={EliquidsScreens}/>
             <HomeStackNavigator.Screen
-            name='DetailsCity'
-            component={DetailsCity}/>
-            <HomeStackNavigator.Screen
-            name='DetailsHotel'
-            component={DetailsHotel}/>
-            <HomeStackNavigator.Screen
-            name='Itineraries'
-            component={Itineraries}/>
-            <HomeStackNavigator.Screen
-            name='Profile'
-            component={Profile}/>
-            <HomeStackNavigator.Screen
-            name='Shows'
-            component={Shows}/>
+            name='DetailsCart'
+            component={DetailsCart}/>
             <HomeStackNavigator.Screen
             name='SignUp'
             component={SignUp}
