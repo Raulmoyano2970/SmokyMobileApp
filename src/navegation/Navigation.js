@@ -2,17 +2,13 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer} from '@react-navigation/native';
-import CitiesScreens from '../screens/CitiesScreens';
-import HotelsScreens from '../screens/HotelsScreens'; 
-import DetailsCity from "../screens/DetailsCity";
-import DetailsHotel from "../screens/DetailsHotel";
-import Itineraries from "../screens/Itineraries";
-import Shows from "../screens/Shows";
+import VapersScreens from '../screens/VapersScreens';
+import EliquidsScreens from '../screens/EliquidsScreens'; 
+import DetailsCart from "../screens/DetailsCart";
 import Home from '../screens/Home';
 import User from '../screens/User';
 import SignUp from '../screens/SignUp';
 import SignIn from '../screens/SignIn';
-import Profile from "../screens/Profile"
 
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -22,33 +18,21 @@ function MyStack() {
     return(
         <HomeStackNavigator.Navigator>
             <HomeStackNavigator.Screen
-            name='Smoke'
+            name='Smoky'
             component={Home}/>
             <HomeStackNavigator.Screen
-            name='Cities'
-            component={CitiesScreens}
+            name='Vapers'
+            component={VapersScreens}
             options={{
                 headerBackTitleVisible: false,
             }}
             />
             <HomeStackNavigator.Screen
-            name='Hotels'
-            component={HotelsScreens}/>
+            name='E-liquids'
+            component={EliquidsScreens}/>
             <HomeStackNavigator.Screen
-            name='DetailsCity'
-            component={DetailsCity}/>
-            <HomeStackNavigator.Screen
-            name='DetailsHotel'
-            component={DetailsHotel}/>
-            <HomeStackNavigator.Screen
-            name='Itineraries'
-            component={Itineraries}/>
-            <HomeStackNavigator.Screen
-            name='Profile'
-            component={Profile}/>
-            <HomeStackNavigator.Screen
-            name='Shows'
-            component={Shows}/>
+            name='DetailsCart'
+            component={DetailsCart}/>
             <HomeStackNavigator.Screen
             name='SignUp'
             component={SignUp}

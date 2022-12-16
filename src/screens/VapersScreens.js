@@ -1,44 +1,53 @@
 import React from "react";
-import HotelCard from "../components/HotelCard";
+import VapersCard from "../components/VapersCard";
 import { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import hotelsActions from '../redux/actions/hotelsActions'
+import vapersActions from '../redux/actions/vapersAction'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions, ScrollView } from 'react-native'
 import { TextInput } from "react-native-gesture-handler";
+import { useNavigation } from '@react-navigation/native'
 
-export default function HotelsScreens(props) {
+export default function VapersScreens(props) {
   
   
   const dispatch = useDispatch()
-  const [searchHotels, setSearchHotels] = useState('')
-  const {hotels, search} = useSelector(store => store.hotelReducer)
-  const { getHotels, filterHotels } = hotelsActions
+  const [searchVapers, setSearchVapers] = useState('')
+  const {vapers, search} = useSelector(store => store.vapersReducer)
+  const { getVapers } = vapersActions
+  const navigation = useNavigation();
 
-  
   useEffect(() => {
+    // dispatch(getVapers())
+
     if(search){
         let info ={ 
             search: search, 
+           
         }
-        dispatch(filterHotels(info))
-        setSearchHotels(search)
+        dispatch(getVapers(info))
+        setSearchVapers(search)
         
     }else{
-        dispatch(getHotels())
+        let data = {
+            name:"",
+            category:"",
+        }
+        dispatch(getVapers(data))
     }
     //eslint-disable-next-line
 
-    
-}, []) 
+}, [])
+console.log(vapers) 
 
 const styles = StyleSheet.create({
     text: {
         color: '#fff',
-        fontSize: 40,
         textAlign: "center",
         textShadowOffset: { width: -1, height: 1 },
         textShadowRadius: 10,
         marginTop: 30,
+        fontSize: 40,
+        fontWeight:"bold"
     },
     container: {
         width: '100%',
@@ -53,7 +62,11 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         borderRadius: 20,
+        height:"6%",
+        width:"100%",
+     
     },
+    
     textInput: {
         backgroundColor: '#fff',
         width: '60%',
@@ -61,26 +74,27 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft:"20%"
+        marginLeft:"20%",
+        textAlign: "center",
+        marginBottom: 20,
+        
     }
 });
-
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
       <ScrollView>
-        <Text style={styles.text}>E-liquids</Text>
+        <Text style={styles.text}>Vapers</Text>
         <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text)=>{
-            setSearchHotels(text)
+            setSearchVapers(text)
             let data = {
                 search: text
             }
-
-            dispatch(filterHotels(data))
+            dispatch(getVapers(data))
         }}/>
         <View style={styles.containerCard}>
-            {hotels.map(hotel => <HotelCard key={hotel._id}hotel={hotel} name={hotel.name} navigation={props.navigation} continent={hotel.continent} photo={hotel.photo[0]}/>)}
-
+            {vapers.map(vaper => <VapersCard key={vaper._id} vaper={vaper} name={vaper.name} descripcion={vaper.descripcion} navigation={props.navigation} price={vaper.price} photo={vaper.photo} />)}
+            
         </View>
       </ScrollView>
       </ImageBackground>
