@@ -85,7 +85,7 @@ export default function Itineraries({ route }) {
                                 <Text style={styles.text1}>Duration: {itinerary.duration}hs</Text>
                                 <Text style={styles.text1}>Price: U$D{itinerary.price}</Text>
                                <View style={{flexDirection:'row'}} >
-                                 <Reaction itineraryId={itinerary._id}/>
+                               <Reaction itineraryId={itinerary._id}/>
                             </View>
                             </View>
                         )

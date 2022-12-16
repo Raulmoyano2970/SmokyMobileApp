@@ -1,44 +1,45 @@
 import React from "react";
-import HotelCard from "../components/HotelCard";
+import CityCard from "../components/EliquidsCard";
 import { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import hotelsActions from '../redux/actions/hotelsActions'
+import citiesActions from '../redux/actions/citiesActions'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions, ScrollView } from 'react-native'
 import { TextInput } from "react-native-gesture-handler";
+import { useNavigation } from '@react-navigation/native'
 
-export default function HotelsScreens(props) {
+export default function CitiesScreens(props) {
   
   
   const dispatch = useDispatch()
-  const [searchHotels, setSearchHotels] = useState('')
-  const {hotels, search} = useSelector(store => store.hotelReducer)
-  const { getHotels, filterHotels } = hotelsActions
-
+  const [searchCities, setSearchCities] = useState('')
+  const {cities, search} = useSelector(store => store.cityReducer)
+  const { getCities, filterCities } = citiesActions
+  const navigation = useNavigation();
   
   useEffect(() => {
     if(search){
         let info ={ 
             search: search, 
         }
-        dispatch(filterHotels(info))
-        setSearchHotels(search)
+        dispatch(filterCities(info))
+        setSearchCities(search)
         
     }else{
-        dispatch(getHotels())
+        dispatch(getCities())
     }
     //eslint-disable-next-line
 
-    
 }, []) 
 
 const styles = StyleSheet.create({
     text: {
         color: '#fff',
-        fontSize: 40,
         textAlign: "center",
         textShadowOffset: { width: -1, height: 1 },
         textShadowRadius: 10,
         marginTop: 30,
+        fontSize: 40,
+        fontWeight:"bold"
     },
     container: {
         width: '100%',
@@ -61,7 +62,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft:"20%"
+        marginLeft:"20%",
+        textAlign: "center",
+        
     }
 });
 
@@ -69,18 +72,17 @@ const styles = StyleSheet.create({
     <View style={styles.container}>
       <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
       <ScrollView>
-        <Text style={styles.text}>E-liquids</Text>
+        <Text style={styles.text}>Vapers</Text>
         <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text)=>{
-            setSearchHotels(text)
+            setSearchCities(text)
             let data = {
                 search: text
             }
-
-            dispatch(filterHotels(data))
+            dispatch(filterCities(data))
         }}/>
         <View style={styles.containerCard}>
-            {hotels.map(hotel => <HotelCard key={hotel._id}hotel={hotel} name={hotel.name} navigation={props.navigation} continent={hotel.continent} photo={hotel.photo[0]}/>)}
-
+            {cities.map(city => <CityCard key={city._id} city={city} name={city.name} navigation={props.navigation} continent={city.continent} photo={city.photo} />)}
+            
         </View>
       </ScrollView>
       </ImageBackground>

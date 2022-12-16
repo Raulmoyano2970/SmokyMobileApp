@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer} from '@react-navigation/native';
-import CitiesScreens from '../screens/CitiesScreens';
-import HotelsScreens from '../screens/HotelsScreens'; 
+import VapersScreens from '../screens/VapersScreens';
+import EliquidsScreens from '../screens/EliquidsScreens'; 
 import DetailsCity from "../screens/DetailsCity";
 import DetailsHotel from "../screens/DetailsHotel";
 import Itineraries from "../screens/Itineraries";
@@ -22,18 +22,18 @@ function MyStack() {
     return(
         <HomeStackNavigator.Navigator>
             <HomeStackNavigator.Screen
-            name='Smoke'
+            name='Smoky'
             component={Home}/>
             <HomeStackNavigator.Screen
-            name='Cities'
-            component={CitiesScreens}
+            name='Vapers'
+            component={VapersScreens}
             options={{
                 headerBackTitleVisible: false,
             }}
             />
             <HomeStackNavigator.Screen
-            name='Hotels'
-            component={HotelsScreens}/>
+            name='E-liquids'
+            component={EliquidsScreens}/>
             <HomeStackNavigator.Screen
             name='DetailsCity'
             component={DetailsCity}/>

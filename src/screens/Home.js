@@ -20,7 +20,7 @@ const navigation = useNavigation();
     }}>
       
       <TouchableOpacity
-                    onPress={() => navigation.navigate("Cities")}
+                    onPress={() => navigation.navigate("Vapers")}
                     style={{
                       backgroundColor: "rgb(142, 4, 184)",
                       width: 180,
@@ -45,7 +45,7 @@ const navigation = useNavigation();
                     >Vapers</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate("Hotels")}
+                    onPress={() => navigation.navigate("E-liquids")}
                     style={{
                         backgroundColor: "rgb(142, 4, 184)",
                         width: 180,

@@ -35,9 +35,10 @@ const navigation = useNavigation();
 >
                     <Text
                         style={{
-                            fontSize: 20,
-                            textAlign: "center",
-                            color: "white",
+                          fontSize: 25,
+                          textAlign: "center",
+                          color: "white",
+                          fontWeight:"bold"
                         }}
                     >Sign In</Text>
                 </TouchableOpacity>
@@ -54,9 +55,10 @@ const navigation = useNavigation();
 >
                     <Text
                         style={{
-                            fontSize: 20,
-                            textAlign: "center",
-                            color: "white",
+                          fontSize: 25,
+                          textAlign: "center",
+                          color: "white",
+                          fontWeight:"bold"
                         }}
                     >Sign Up</Text>
                 </TouchableOpacity>
