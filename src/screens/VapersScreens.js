@@ -37,7 +37,6 @@ export default function VapersScreens(props) {
     //eslint-disable-next-line
 
 }, [])
-console.log(vapers) 
 
 const styles = StyleSheet.create({
     text: {
