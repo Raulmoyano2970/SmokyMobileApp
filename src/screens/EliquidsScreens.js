@@ -66,6 +66,21 @@ export default function EliquidsScreens(props) {
             height:"11%",
             width:"100%"
         },
+        imageCard: {
+            width: 36,
+            position: "fixed",
+            right: 36,
+            borderRadius: "50%",
+            
+            // .cart-logo {
+            //     width: 2em;
+            //     position: fixed;
+            //     right: 2em;
+            //     border-radius: 50%;
+            //     transition: all 0.5s;
+            // }
+        }, 
+
         textInput: {
             backgroundColor: '#fff',
             width: '60%',
@@ -84,6 +99,9 @@ export default function EliquidsScreens(props) {
         <View style={styles.container}>
 
             <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
+            <View style={{position:'absolute',top:0,alignSelf:'flex-end', zIndex:1}}>
+          <Image source={require('../asset/carrito.png')} style={{width:60, height:60}}/>
+        </View>
                 <ScrollView>
                     <Text style={styles.text}>E-liquids</Text>
                     <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text) => {
@@ -94,7 +112,8 @@ export default function EliquidsScreens(props) {
                         dispatch(getEliquids(data))
                         // dispatch(filterHotels(data))
                     }} />
-
+                    
+                   
                     <View style={styles.containerCard}>
                         {eliquids.map(eliquid => <EliquidsCard key={eliquid._id} eliquid={eliquid} name={eliquid.name} navigation={props.navigation} price={eliquid.price} descripcion={eliquid.descripcion} photo={eliquid.photo} />)}
 
