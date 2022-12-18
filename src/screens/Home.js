@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimen
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar';
+// import Video from 'react-native-video'
 const width = Dimensions.get("window").width
 const height = Dimensions.get("window").height
 
@@ -13,7 +14,15 @@ const navigation = useNavigation();
     <View style={styles.container}>
             <StatusBar />
             <ImageBackground source={require('../asset/Home.jpg')} resizeMode="cover" style={styles.image}>
-    <View
+    
+            {/* <View style={{flex: 1}}>
+      <Video
+        source={require('../asset/headerBackground.mp4')}
+        style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}
+        resizeMode='cover'
+        repeat
+      /> */}
+      <View
     style={{ 
       justifyContent: 'center', 
         alignItems: 'center',
@@ -64,6 +73,7 @@ const navigation = useNavigation();
                         }}
                     >E-liquids</Text>
                 </TouchableOpacity>
+                
     </View>
     </ImageBackground>
         </View>

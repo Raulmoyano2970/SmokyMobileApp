@@ -82,6 +82,9 @@ const styles = StyleSheet.create({
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
+      <View style={{position:'absolute',top:0,alignSelf:'flex-end', zIndex:1}}>
+          <Image source={require('../asset/carrito.png')} style={{width:60, height:60}}/>
+        </View>
       <ScrollView>
         <Text style={styles.text}>Vapers</Text>
         <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text)=>{
