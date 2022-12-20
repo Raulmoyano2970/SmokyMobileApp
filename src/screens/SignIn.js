@@ -24,8 +24,8 @@ export default function SignIn(props) {
         try {
             const res = await dispatch(login(userData))
             if (res.payload.success) {
-                Alert.alert('Success', res.payload.message)
-                props.navigation.navigate('Home')
+                Alert.alert('Success', res.payload.message);
+                props.navigation.navigate('Smoky')
             } else {
                 Alert.alert('Error', res.payload.response)
             }
