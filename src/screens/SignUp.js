@@ -24,10 +24,10 @@ export default function SignUp(props) {
 
     const handleSubmit = async () => {
         try {
-            const res = await axios.post(`${baseURL}api/auth/sign-up/`, userData)
+            const res = await axios.post(`${baseURL}auth/sign-up/`, userData)
             if (res.data.success) {
-                Alert.alert('Success', res.data.message)
-                props.navigation.navigate('Home')
+                Alert.alert('Success', res.data.message);
+                props.navigation.navigate('SignIn')
             } else {
                 Alert.alert('Error', res.data.message)
             }

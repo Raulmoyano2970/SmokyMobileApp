@@ -21,7 +21,7 @@ export default function EliquidsScreens(props) {
         // dispatch(getEliquids())
         if (search) {
             let info = {
-                search: search,
+                name: search,
             }
             dispatch(getEliquids(info))
             setSearchEliquids(search)
@@ -107,7 +107,8 @@ export default function EliquidsScreens(props) {
                     <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text) => {
                         setSearchEliquids(text)
                         let data = {
-                            search: text
+                            name: text,
+                            category: "",
                         }
                         dispatch(getEliquids(data))
                         // dispatch(filterHotels(data))

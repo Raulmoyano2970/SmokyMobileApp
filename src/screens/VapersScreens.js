@@ -21,7 +21,7 @@ export default function VapersScreens(props) {
 
     if(search){
         let info ={ 
-            search: search, 
+            name: search, 
            
         }
         dispatch(getVapers(info))
@@ -90,7 +90,8 @@ const styles = StyleSheet.create({
         <TextInput style={styles.textInput} placeholder="Search" onChangeText={(text)=>{
             setSearchVapers(text)
             let data = {
-                search: text
+                name: text,
+                category:"",
             }
             dispatch(getVapers(data))
         }}/>
