@@ -36,7 +36,7 @@ export default function SignIn(props) {
 
     return (
 
-        <ImageBackground source={require('../asset/singup.jpg')} resizeMode="cover" style={styles.backimage}>
+        <ImageBackground source={require('../asset/bg-cart.jpg')} resizeMode="cover" style={styles.backimage}>
             <View style={styles.container}>
                 <Text style={styles.textTitle}>Sign In</Text>
                 <TextInput style={styles.input} placeholder="Email" onChangeText={(e) => handleInput(e, "email")} />
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '70%',
         height: 300,
-        backgroundColor: '#d7e3ff55',
+        backgroundColor: 'black',
         borderRadius: 20,
         marginLeft: "15%",
     },
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     
     
   textdos:{
-        color: "black",
+        color: "white",
         fontSize:20
         
     },
