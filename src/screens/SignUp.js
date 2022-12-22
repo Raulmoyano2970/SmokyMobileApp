@@ -38,7 +38,7 @@ export default function SignUp(props) {
 
     return (
         
-            <ImageBackground source={require('../asset/singup.jpg')} resizeMode="cover" style={styles.backimage}>
+            <ImageBackground source={require('../asset/bg-cart.jpg')} resizeMode="cover" style={styles.backimage}>
                 <View style={styles.container}>
                 <Text style={styles.textTitle}>Sign Up</Text>
                 <TextInput style={styles.input} placeholder="Name" onChangeText={(e) => handleInput(e, "name")} />
@@ -65,9 +65,9 @@ export default function SignUp(props) {
             alignItems: 'center',
             gap: 18,
             justifyContent: 'center',
-            width: '70%',
+            width: '78%',
             height: 400,
-            backgroundColor: '#d7e3ff55',
+            backgroundColor: 'black',
             borderRadius: 20,
             marginLeft: "15%",
           },
@@ -88,7 +88,7 @@ export default function SignUp(props) {
         
         
       textdos:{
-            color: "black",
+            color: "white",
             fontSize:20
             
         },

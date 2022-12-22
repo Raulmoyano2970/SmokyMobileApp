@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import vapersActions from '../redux/actions/vapersAction'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, Dimensions, ScrollView } from 'react-native'
 import { TextInput } from "react-native-gesture-handler";
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 
 export default function VapersScreens(props) {
   

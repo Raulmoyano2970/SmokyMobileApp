@@ -13,7 +13,7 @@ const navigation = useNavigation();
   return (
     <View style={styles.container}>
             <StatusBar />
-            <ImageBackground source={require('../asset/Home.jpg')} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={require('../asset/main-home-img.jpg')} resizeMode="cover" style={styles.image}>
     
             {/* <View style={{flex: 1}}>
       <Video
@@ -31,7 +31,7 @@ const navigation = useNavigation();
       <TouchableOpacity
                     onPress={() => navigation.navigate("Vapers")}
                     style={{
-                      backgroundColor: "rgb(142, 4, 184)",
+                      backgroundColor: "#ff21ab",
                       width: 180,
                       height: 50,
                       borderRadius: 20,
@@ -56,7 +56,7 @@ const navigation = useNavigation();
                 <TouchableOpacity
                     onPress={() => navigation.navigate("E-liquids")}
                     style={{
-                        backgroundColor: "rgb(142, 4, 184)",
+                        backgroundColor: "#ff21ab",
                         width: 180,
                         height: 50,
                         borderRadius: 20,

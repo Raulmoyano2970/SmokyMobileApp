@@ -12,7 +12,7 @@ const navigation = useNavigation();
   return (
     <View style={styles.container}>
             <StatusBar />
-            <ImageBackground source={require('../asset/girl.jpg')} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={require('../asset/main-home-img.jpg')} resizeMode="cover" style={styles.image}>
     <View
     style={{ 
       justifyContent: 'center', 
@@ -24,7 +24,7 @@ const navigation = useNavigation();
       <TouchableOpacity
                     onPress={() => navigation.navigate("SignIn")}
                     style={{
-                      backgroundColor: "rgb(142, 4, 184)",
+                      backgroundColor: "#ff21ab",
                       width: 180,
                       height: 50,
                       borderRadius: 20,
@@ -45,7 +45,7 @@ const navigation = useNavigation();
                 <TouchableOpacity
                     onPress={() => navigation.navigate("SignUp")}
                     style={{
-                        backgroundColor: "rgb(142, 4, 184)",
+                        backgroundColor: "#ff21ab",
                         width: 180,
                         height: 50,
                         borderRadius: 20,
