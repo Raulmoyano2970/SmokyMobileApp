@@ -100,7 +100,9 @@ export default function EliquidsScreens(props) {
 
             <ImageBackground source={require('../asset/humo.jpeg')} resizeMode="cover" style={styles.backimage}>
             <View style={{position:'absolute',top:0,alignSelf:'flex-end', zIndex:1}}>
-          <Image source={require('../asset/carrito.png')} style={{width:60, height:60}}/>
+            <TouchableOpacity onPress={() => navigation.navigate("Shop")}>
+          <Image source={require('../asset/carrito.png')}   style={{width:60, height:60}}/>
+        </TouchableOpacity>
         </View>
                 <ScrollView>
                     <Text style={styles.text}>E-liquids</Text>
