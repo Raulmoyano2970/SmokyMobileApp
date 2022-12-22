@@ -31,7 +31,7 @@ function MyStack() {
             name='E-liquids'
             component={EliquidsScreens}/>
             <HomeStackNavigator.Screen
-            name='DetailsCart'
+            name='Shop'
             component={DetailsCart}/>
             <HomeStackNavigator.Screen
             name='SignUp'
